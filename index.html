@@ -590,6 +590,18 @@
 
   <div class="mobile-wrapper">
     
+    <!-- Spinning Disco Ball -->
+    <div style="font-size: 48px; filter: drop-shadow(0 0 20px #00ffff); animation: spinDisco 3s infinite linear; margin-bottom: 2px;">
+      🪩
+    </div>
+    <style>
+      @keyframes spinDisco {
+        0% { transform: rotate(0deg) scale(1); }
+        50% { transform: rotate(180deg) scale(1.15); }
+        100% { transform: rotate(360deg) scale(1); }
+      }
+    </style>
+
     <!-- Top Trash Stickers -->
     <div class="trash-stickers">
       <div class="sticker s-pink">👑 DONATONA NAZIONALE</div>
@@ -652,11 +664,16 @@
             <div class="candle-action-box">
               <button class="candle-btn" onclick="blowCandle(event)">
                 <span id="flame" style="font-size: 16px;">🔥</span>
-                <span id="candle-text">SOFFIA E VIA I DOLORI! 🎂</span>
+                <span id="candle-text">SOFFIA! 🎂</span>
+              </button>
+
+              <button class="candle-btn" style="background: linear-gradient(135deg, #00ffff, #39ff14); color: #000;" onclick="playStadiumChant(event)">
+                <span>📣</span>
+                <span>CORO ULTRÀS!</span>
               </button>
 
               <div class="sign-row">
-                <div style="font-size: 10px; font-weight: 900; color: #777;">Con affetto fraterno,</div>
+                <div style="font-size: 10px; font-weight: 900; color: #777;">Con affetto,</div>
                 <div class="sign-trash-text">Luigi 🚀</div>
               </div>
             </div>
@@ -840,6 +857,32 @@
 
       fireConfetti(140);
       spawnPartyEmojis(["🍾", "🥂", "🍕", "🥖", "🎉"]);
+    }
+
+    /* Stadium Chant "Olé Olé Olé Donata!" */
+    function playStadiumChant(e) {
+      if (e) e.stopPropagation();
+      initAudio();
+      triggerHaptic([100, 50, 100, 50, 100, 50, 200]);
+      if (!audioCtx) return;
+
+      const chant = [
+        { f: 392.00, d: 0.28 }, { f: 523.25, d: 0.35 }, { f: 440.00, d: 0.28 }, { f: 392.00, d: 0.55 },
+        { f: 349.23, d: 0.28 }, { f: 440.00, d: 0.28 }, { f: 392.00, d: 0.65 },
+        { f: 523.25, d: 0.32 }, { f: 587.33, d: 0.32 }, { f: 523.25, d: 0.8 }
+      ];
+
+      let time = 0;
+      chant.forEach((note) => {
+        setTimeout(() => {
+          if (!soundEnabled) return;
+          playSynthTone(note.f, note.d * 0.85);
+        }, time * 1000);
+        time += note.d * 0.9;
+      });
+
+      fireConfetti(100);
+      spawnPartyEmojis(["📣", "🏆", "🇮🇹", "🔥", "👑", "💃"]);
     }
 
     /* Disco Strobe Mode */
