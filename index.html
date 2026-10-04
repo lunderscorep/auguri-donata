@@ -567,6 +567,246 @@
       0% { transform: translateY(105vh) scale(0.6) rotate(0deg); opacity: 1; }
       100% { transform: translateY(-10vh) scale(1.4) rotate(360deg); opacity: 0; }
     }
+  
+    /* STORY & MULTI-PAGE NAVIGATION */
+    .story-nav {
+      display: flex;
+      gap: 6px;
+      width: 100%;
+      max-width: 440px;
+      margin-bottom: 14px;
+      padding: 0 4px;
+    }
+
+    .story-step {
+      flex: 1;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .story-step .step-bar {
+      height: 5px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 999px;
+      margin-bottom: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .story-step.active .step-bar {
+      background: linear-gradient(90deg, #ff007f, #ffff00, #39ff14);
+      box-shadow: 0 0 10px #ff007f;
+    }
+
+    .story-step span {
+      font-family: 'Bungee', cursive;
+      font-size: 9px;
+      color: rgba(255, 255, 255, 0.6);
+      white-space: nowrap;
+    }
+
+    .story-step.active span {
+      color: #ffff00;
+      text-shadow: 0 0 6px rgba(255, 255, 0, 0.8);
+    }
+
+    /* STORY PAGES */
+    .page-section {
+      width: 100%;
+      max-width: 440px;
+      animation: pageIn 0.35s ease forwards;
+    }
+
+    @keyframes pageIn {
+      from { opacity: 0; transform: translateY(12px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .story-card {
+      background: rgba(25, 0, 48, 0.94);
+      border: 3px solid #ff007f;
+      border-radius: 24px;
+      padding: 22px 18px;
+      box-shadow: 
+        0 0 0 2px #ffff00,
+        0 15px 35px rgba(0, 0, 0, 0.8),
+        0 0 30px rgba(255, 0, 127, 0.4);
+      backdrop-filter: blur(10px);
+      margin-bottom: 16px;
+    }
+
+    .story-card-gold {
+      border-color: #ffd700;
+      box-shadow: 
+        0 0 0 2px #39ff14,
+        0 15px 35px rgba(0, 0, 0, 0.8),
+        0 0 35px rgba(255, 215, 0, 0.4);
+    }
+
+    .story-header {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .huge-emoji {
+      font-size: 52px;
+      margin-bottom: 8px;
+      animation: bouncePulse 2s infinite ease-in-out;
+    }
+
+    @keyframes bouncePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15) rotate(4deg); }
+    }
+
+    .story-title {
+      font-family: 'Bungee', cursive;
+      font-size: 21px;
+      color: #ff007f;
+      text-shadow: 2px 2px 0 #ffff00;
+      line-height: 1.15;
+      margin-bottom: 4px;
+    }
+
+    .story-sub {
+      font-family: 'Comic Neue', cursive;
+      font-size: 13px;
+      font-weight: 700;
+      color: #00ffff;
+      text-shadow: 1px 1px 0 #000;
+    }
+
+    .story-body {
+      font-size: 14px;
+      line-height: 1.55;
+      color: #f1f5f9;
+      margin-bottom: 20px;
+    }
+
+    .story-body p {
+      margin-bottom: 12px;
+    }
+
+    .highlight-box-trash {
+      background: rgba(255, 0, 127, 0.15);
+      border-left: 4px solid #ff007f;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      margin: 12px 0;
+    }
+
+    .cash-statuto-box {
+      background: rgba(57, 255, 20, 0.12);
+      border: 2px dashed #39ff14;
+      padding: 12px;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 13px;
+      color: #39ff14;
+      margin: 14px 0;
+      line-height: 1.45;
+    }
+
+    /* Cash simulator box */
+    .cash-simulator-box {
+      background: #090314;
+      border: 2px solid #ffd700;
+      border-radius: 16px;
+      padding: 14px;
+      text-align: center;
+      margin: 16px 0;
+      box-shadow: inset 0 0 20px rgba(255, 215, 0, 0.2);
+    }
+
+    .cash-display {
+      font-family: 'Bungee', cursive;
+      font-size: 28px;
+      color: #39ff14;
+      text-shadow: 0 0 15px rgba(57, 255, 20, 0.8), 2px 2px 0 #000;
+      margin: 6px 0;
+      transition: transform 0.15s ease;
+    }
+
+    .cash-status {
+      font-size: 12px;
+      color: #ffd700;
+      font-weight: 700;
+      min-height: 32px;
+      margin-bottom: 10px;
+    }
+
+    .cash-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #ffd700, #ff8c00);
+      color: #000;
+      border: 2px solid #fff;
+      padding: 12px 8px;
+      border-radius: 12px;
+      font-family: 'Bungee', cursive;
+      font-size: 11px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.6);
+      transition: all 0.15s ease;
+    }
+
+    .cash-btn:active {
+      transform: scale(0.96);
+    }
+
+    .mega-story-btn {
+      width: 100%;
+      border: none;
+      padding: 14px 12px;
+      border-radius: 16px;
+      font-family: 'Bungee', cursive;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      text-align: center;
+      transition: all 0.2s ease;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .mega-story-btn:active {
+      transform: scale(0.97);
+    }
+
+    .btn-neon-pink {
+      background: linear-gradient(135deg, #ff007f, #ff5722);
+      color: #fff;
+      border: 2px solid #ffff00;
+      box-shadow: 0 0 20px rgba(255, 0, 127, 0.6);
+    }
+
+    .btn-neon-green {
+      background: linear-gradient(135deg, #39ff14, #00ffff);
+      color: #000;
+      border: 2px solid #fff;
+      box-shadow: 0 0 20px rgba(57, 255, 20, 0.6);
+    }
+
+    .story-nav-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .btn-back-story {
+      background: #1e1b4b;
+      color: #cbd5e1;
+      border: 1px solid #4338ca;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-family: 'Bungee', cursive;
+      font-size: 11px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
   </style>
 </head>
 <body>
@@ -590,25 +830,147 @@
 
   <div class="mobile-wrapper">
     
-    <!-- Spinning Disco Ball -->
-    <div style="font-size: 48px; filter: drop-shadow(0 0 20px #00ffff); animation: spinDisco 3s infinite linear; margin-bottom: 2px;">
-      🪩
+    <!-- Multi-Story Navigation Bar -->
+    <div class="story-nav">
+      <div class="story-step active" id="step-dot-1" onclick="goToPage(1)">
+        <div class="step-bar"></div>
+        <span>1. ROMA 🏛️</span>
+      </div>
+      <div class="story-step" id="step-dot-2" onclick="goToPage(2)">
+        <div class="step-bar"></div>
+        <span>2. IL PIANO 💰</span>
+      </div>
+      <div class="story-step" id="step-dot-3" onclick="goToPage(3)">
+        <div class="step-bar"></div>
+        <span>3. I 42 ANNI! 🎂</span>
+      </div>
     </div>
-    <style>
-      @keyframes spinDisco {
-        0% { transform: rotate(0deg) scale(1); }
-        50% { transform: rotate(180deg) scale(1.15); }
-        100% { transform: rotate(360deg) scale(1); }
-      }
-    </style>
 
-    <!-- Top Trash Stickers -->
-    <div class="trash-stickers">
-      <div class="sticker s-pink">👑 DONATONA NAZIONALE</div>
-      <div class="sticker s-yellow">🍷 42 ANNI D.O.C.G.</div>
-      <div class="sticker s-green">🏺 PRESIDIO CELSO 163</div>
-      <div class="sticker s-cyan">🔥 SEXY & FABULOUS</div>
+    <!-- PAGE 1: LE SCUSE PER NON ESSERE ANDATI A ROMA -->
+    <div id="page-1" class="page-section">
+      <div class="trash-stickers">
+        <div class="sticker s-pink">🚨 COMUNICATO UFFICIALE DI SCUSE</div>
+        <div class="sticker s-yellow">🏛️ DESTINAZIONE: ROMA CAPITALE</div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-header">
+          <div class="huge-emoji">🏛️🚄💔</div>
+          <h2 class="story-title">DONATA, PERDONACI!</h2>
+          <div class="story-sub">Dossier Diplomatico: La mancata trasferta a Roma</div>
+        </div>
+
+        <div class="story-body">
+          <p>Cara Donatona,</p>
+          <p>
+            Ti chiediamo <strong>umilmente, ufficialmente e solennemente perdono</strong> per non essere saliti a Roma insieme a te! 🥺🙏
+          </p>
+          <p>
+            Sappiamo quanto ci tenevi, sappiamo che Roma con te al comando sarebbe stata indimenticabile, e che un piatto di cacio e pepe con la tua risata avrebbe zittito l’intero Colosseo...
+          </p>
+          <div class="highlight-box-trash">
+            ❌ <strong>Non è stata pigrizia.</strong><br>
+            ❌ <strong>Non è stato il treno perso.</strong><br>
+            ❌ <strong>E non è che ci siamo dimenticati di te (impossibile!).</strong>
+          </div>
+          <p style="font-weight: 800; font-size: 14px; color: #ffff00; text-align: center; margin-top: 14px;">
+            C'è un motivo gravissimo, nobilissimo e miliardario dietro a tutto questo... 👇
+          </p>
+        </div>
+
+        <button class="mega-story-btn btn-neon-pink" onclick="goToPage(2)">
+          <span>👉 MA ALLORA PERCHÉ NON SIETE VENUTI?! 💥</span>
+          <span style="font-size: 11px; opacity: 0.9;">Tocca per scoprire la verità shock</span>
+        </button>
+      </div>
     </div>
+
+    <!-- PAGE 2: IL PIANO SEGRETO "CITTÀ D'ARTE" PER FARLA ARRICCHIRE COL DOTTORE -->
+    <div id="page-2" class="page-section" style="display: none;">
+      <div class="trash-stickers">
+        <div class="sticker s-green">💼 PIANO INDUSTRIALE SEGRETO</div>
+        <div class="sticker s-cyan">🩺 APPROVATO DAL DOTTORE</div>
+        <div class="sticker s-yellow">📲 CITTÀ D'ARTE SOCI</div>
+      </div>
+
+      <div class="story-card story-card-gold">
+        <div class="story-header">
+          <div class="huge-emoji">💎🛥️🤑</div>
+          <h2 class="story-title" style="color: #39ff14; text-shadow: 2px 2px 0 #000;">IL PIANO MILIARDARIO</h2>
+          <div class="story-sub" style="color: #ffff00;">Missione: Donatona & il Dottore Schifosamente Ricchi!</div>
+        </div>
+
+        <div class="story-body">
+          <p>
+            Il motivo reale per cui siamo rimasti inchiodati a lavorare è uno solo:
+          </p>
+          <p style="font-size: 16px; font-weight: 900; color: #00ffff; text-shadow: 1px 1px 0 #000; text-align: center; background: rgba(0, 255, 255, 0.1); padding: 8px; border-radius: 10px;">
+            STIAMO LAVORANDO GIORNO E NOTTE SU CITTÀ D'ARTE! 📲🏛️
+          </p>
+          <p>
+            Sì, l'applicazione di cui <strong>siamo soci fondatori, complici di visione e fratelli d'armi</strong>!
+          </p>
+          <p>
+            Mentre tu eri a Roma, noi stavamo fatturando, programmando e incrociando i codici con un unico, supremo obiettivo statutario:
+          </p>
+          <div class="cash-statuto-box">
+            💸 <strong>ART. 1 DELLO STATUTO SEGRETO:</strong><br>
+            «Far diventare Donata e il Dottore <u>SCHIFOSAMENTE RICCHI</u> grazie a Città d'Arte!» 🤑🛥️✨
+          </div>
+          <p style="font-size: 13px; color: #cbd5e1;">
+            Basta pensieri: solo piogge di dividendi, yacht ormeggiati al porto, cene stellate e il Dottore che prescrive vacanze ai Caraibi 12 mesi l'anno! 🩺🌴🍾
+          </p>
+
+          <!-- Cash Generator Mini Game -->
+          <div class="cash-simulator-box">
+            <div style="font-family: 'Bungee', cursive; font-size: 11px; color: #ffd700;">
+              📈 SIMULATORE DIVIDENDI PER DONATA & IL DOTTORE:
+            </div>
+            <div class="cash-display" id="cash-amount">€ 1.250.000</div>
+            <div class="cash-status" id="cash-status">🩺 Il Dottore firma il primo bonifico da Monte Carlo!</div>
+            <button class="cash-btn" onclick="generateCash(event)">
+              <span>💵 PIGIA PER INCASSARE ALTRI DIVIDENDI! 💸</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="story-nav-row">
+          <button class="btn-back-story" onclick="goToPage(1)">← Roma</button>
+          <button class="mega-story-btn btn-neon-green" onclick="goToPage(3)">
+            <span>👉 E ORA... APRI IL PARTY DEI 42! 🎂🎉</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 3: IL PARTY 3D DEI 42 ANNI (ORIGINALE SUPER TRASH) -->
+    <div id="page-3" class="page-section" style="display: none;">
+      
+      <!-- Back to business button -->
+      <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+        <button class="btn-back-story" style="font-size: 10px; padding: 6px 10px;" onclick="goToPage(2)">← Torna al Piano Miliardario 💰</button>
+        <button class="btn-back-story" style="font-size: 10px; padding: 6px 10px;" onclick="goToPage(1)">← Scuse Roma 🏛️</button>
+      </div>
+
+      <!-- Spinning Disco Ball -->
+      <div style="font-size: 48px; filter: drop-shadow(0 0 20px #00ffff); animation: spinDisco 3s infinite linear; margin-bottom: 2px;">
+        🪩
+      </div>
+      <style>
+        @keyframes spinDisco {
+          0% { transform: rotate(0deg) scale(1); }
+          50% { transform: rotate(180deg) scale(1.15); }
+          100% { transform: rotate(360deg) scale(1); }
+        }
+      </style>
+
+      <!-- Top Trash Stickers -->
+      <div class="trash-stickers">
+        <div class="sticker s-pink">👑 DONATONA NAZIONALE</div>
+        <div class="sticker s-yellow">🍷 42 ANNI D.O.C.G.</div>
+        <div class="sticker s-green">🏺 PRESIDIO CELSO 163</div>
+        <div class="sticker s-cyan">🔥 SEXY & FABULOUS</div>
+      </div>
 
     <!-- 3D Card Scene -->
     <div class="card-scene" id="card-scene">
@@ -699,10 +1061,10 @@
           </div>
         </div>
 
-      </div>
-    </div>
-
-  </div>
+      </div> <!-- closes .card-3d -->
+    </div> <!-- closes #card-scene -->
+  </div> <!-- closes #page-3 -->
+</div> <!-- closes .mobile-wrapper -->
 
   <!-- FIXED MOBILE THUMB-ZONE BOTTOM DOCK -->
   <div class="mobile-bottom-dock">
@@ -732,6 +1094,108 @@
   </div>
 
   <script>
+    
+    /* Cash Register Sound for Page 2 */
+    function playCashRegisterSound() {
+      initAudio();
+      triggerHaptic([60, 40, 80]);
+      if (!audioCtx) return;
+      try {
+        const t = audioCtx.currentTime;
+        const osc1 = audioCtx.createOscillator();
+        const g1 = audioCtx.createGain();
+        osc1.type = "sine";
+        osc1.frequency.setValueAtTime(987.77, t);
+        g1.gain.setValueAtTime(0.3, t);
+        g1.gain.exponentialRampToValueAtTime(0.001, t + 0.15);
+        osc1.connect(g1);
+        g1.connect(audioCtx.destination);
+        osc1.start(t);
+        osc1.stop(t + 0.16);
+
+        const osc2 = audioCtx.createOscillator();
+        const g2 = audioCtx.createGain();
+        osc2.type = "sine";
+        osc2.frequency.setValueAtTime(1318.51, t + 0.08);
+        g2.gain.setValueAtTime(0.35, t + 0.08);
+        g2.gain.exponentialRampToValueAtTime(0.0001, t + 0.45);
+        osc2.connect(g2);
+        g2.connect(audioCtx.destination);
+        osc2.start(t + 0.08);
+        osc2.stop(t + 0.46);
+      } catch(e) {}
+    }
+
+    /* Multi-Story Navigation Logic */
+    let currentPage = 1;
+    function goToPage(page) {
+      currentPage = page;
+      initAudio();
+      triggerHaptic([40, 20, 40]);
+      playSynthTone(440 + page * 120, 0.15);
+
+      document.querySelectorAll('.page-section').forEach(p => p.style.display = 'none');
+      const target = document.getElementById('page-' + page);
+      if (target) {
+        target.style.display = 'block';
+      }
+
+      for (let i = 1; i <= 3; i++) {
+        const step = document.getElementById('step-dot-' + i);
+        if (step) {
+          if (i === page) {
+            step.classList.add('active');
+          } else {
+            step.classList.remove('active');
+          }
+        }
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      if (page === 2) {
+        fireConfetti(60);
+        spawnPartyEmojis(["💰", "💶", "💵", "🤑", "💎", "🛥️", "🩺"]);
+      } else if (page === 3) {
+        fireConfetti(120);
+        playHappyBirthdaySong();
+        spawnPartyEmojis(["🎂", "🍾", "🎉", "🔥", "👑", "💃"]);
+      }
+    }
+
+    /* Cash Generator Logic */
+    let totalCash = 1250000;
+    const cashQuotes = [
+      "🩺 Il Dottore firma il primo bonifico da Monte Carlo!",
+      "🛥️ Yacht 'Città d'Arte I' ormeggiato a Portofino per Donata!",
+      "💎 Stetoscopio in titanio e diamanti regalato al Dottore!",
+      "🏛️ Donata acquista la Scalinata di Caltagirone per relax privato!",
+      "🍾 Cassa di Dom Pérignon prescritta come ricetta medica!",
+      "👑 Presidio Celso 163 elevato a Palazzo Reale Indipendente!",
+      "📈 Città d'Arte batte Apple e Google: dividendi triplicati!",
+      "🌴 Il Dottore dichiara: 'Da oggi solo 350 giorni di ferie l'anno!'"
+    ];
+    let quoteIdx = 0;
+
+    function generateCash(e) {
+      if (e) e.stopPropagation();
+      totalCash += 250000;
+      quoteIdx = (quoteIdx + 1) % cashQuotes.length;
+      playCashRegisterSound();
+      
+      const cashEl = document.getElementById('cash-amount');
+      if (cashEl) {
+        cashEl.textContent = "€ " + totalCash.toLocaleString('it-IT');
+        cashEl.style.transform = "scale(1.2)";
+        setTimeout(() => { cashEl.style.transform = "scale(1)"; }, 150);
+      }
+      const quoteEl = document.getElementById('cash-status');
+      if (quoteEl) {
+        quoteEl.textContent = cashQuotes[quoteIdx];
+      }
+      spawnPartyEmojis(["💶", "💵", "💸", "🤑", "💎", "🛥️", "🩺"]);
+    }
+
     /* Web Audio Engine with Haptic Vibration */
     let audioCtx = null;
     let soundEnabled = true;
