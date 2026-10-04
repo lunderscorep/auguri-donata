@@ -3,20 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Buon 42° Compleanno Donata! 🎂✨</title>
+  <title>🔥 TANTI AUGURI DONATONA NAZIONALE! 🎂🍾💥</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Comic+Neue:wght@700&family=Permanent+Marker&family=Plus+Jakarta+Sans:wght@400;700;900&display=swap');
 
     :root {
-      --gold-1: #fbf5b7;
-      --gold-2: #d4af37;
-      --gold-3: #aa771c;
-      --gold-grad: linear-gradient(135deg, #fbf5b7 0%, #d4af37 35%, #aa771c 70%, #d4af37 100%);
-      --terracotta: #c2410c;
-      --navy-deep: #090d16;
-      --navy-card: #0f172a;
-      --parchment: #fffdf8;
-      --ink: #1c1917;
+      --neon-pink: #ff007f;
+      --neon-green: #39ff14;
+      --neon-yellow: #ffff00;
+      --neon-cyan: #00ffff;
+      --gold: #ffd700;
+      --terracotta: #ff4500;
+      --disco-bg: #0d001a;
     }
 
     * {
@@ -27,13 +25,9 @@
     }
 
     body {
-      background-color: var(--navy-deep);
-      background-image: 
-        radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.12) 0%, transparent 60%),
-        radial-gradient(circle at 80% 80%, rgba(194, 65, 12, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 10% 90%, rgba(30, 58, 138, 0.2) 0%, transparent 60%);
-      color: #f8fafc;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: radial-gradient(circle at center, #1f0038 0%, #0d001a 60%, #000000 100%);
+      color: #ffffff;
+      font-family: 'Comic Neue', cursive, sans-serif;
       min-height: 100vh;
       overflow-x: hidden;
       display: flex;
@@ -41,29 +35,68 @@
       align-items: center;
       justify-content: center;
       position: relative;
-      padding: 20px 16px 40px;
+      padding: 16px 12px 40px;
+      transition: background 0.3s ease;
+    }
+
+    /* DISCO FEVER STROBE MODE */
+    body.disco-active {
+      animation: discoStrobe 0.7s infinite alternate;
+    }
+
+    @keyframes discoStrobe {
+      0% { background: #3b0066; }
+      25% { background: #004d40; }
+      50% { background: #660033; }
+      75% { background: #4a3b00; }
+      100% { background: #1a0033; }
     }
 
     /* Ambient Canvas */
-    #ambient-canvas {
+    #ambient-canvas, #confetti-canvas {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: 1;
+    }
+    #ambient-canvas { z-index: 1; }
+    #confetti-canvas { z-index: 999; }
+
+    /* Top Trash Ticker Bar */
+    .trash-ticker {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(90deg, #ff007f, #ffff00, #39ff14, #00ffff, #ff007f);
+      background-size: 300% 300%;
+      animation: rainbowShift 3s linear infinite;
+      color: #000;
+      font-family: 'Bungee', cursive;
+      font-size: 13px;
+      padding: 5px 0;
+      white-space: nowrap;
+      overflow: hidden;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(255, 0, 127, 0.5);
     }
 
-    /* Confetti Canvas */
-    #confetti-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 99;
+    .trash-ticker-inner {
+      display: inline-block;
+      animation: marquee 16s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(100vw); }
+      100% { transform: translateX(-100%); }
+    }
+
+    @keyframes rainbowShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     /* Main Container */
@@ -71,38 +104,60 @@
       position: relative;
       z-index: 10;
       width: 100%;
-      max-width: 980px;
+      max-width: 920px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      perspective: 2400px;
+      perspective: 2000px;
+      margin-top: 36px;
     }
 
-    /* Top Subtitle Badge */
-    .top-badge {
+    /* Trash Stickers Header */
+    .sticker-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .badge-kitsch {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 6px 18px;
+      gap: 6px;
+      padding: 6px 14px;
       border-radius: 9999px;
-      background: rgba(212, 175, 55, 0.1);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      backdrop-filter: blur(12px);
-      font-family: 'Cinzel', serif;
+      font-family: 'Bungee', cursive;
       font-size: 11px;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: var(--gold-1);
-      margin-bottom: 24px;
-      animation: fadeInDown 1s ease-out;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      transform: rotate(-2deg);
+      animation: wiggle 2s infinite alternate ease-in-out;
     }
 
-    .top-badge .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--gold-2);
-      box-shadow: 0 0 10px var(--gold-2);
+    .badge-pink {
+      background: linear-gradient(135deg, #ff007f, #ff758c);
+      color: #fff;
+      border: 2px solid #fff;
+      text-shadow: 1px 1px 0 #000;
+    }
+    .badge-gold {
+      background: linear-gradient(135deg, #ffd700, #ff8c00);
+      color: #000;
+      border: 2px solid #fff;
+      transform: rotate(2.5deg);
+    }
+    .badge-green {
+      background: linear-gradient(135deg, #39ff14, #00aa00);
+      color: #000;
+      border: 2px solid #fff;
+      transform: rotate(-1.5deg);
+    }
+
+    @keyframes wiggle {
+      0% { transform: scale(1) rotate(-3deg); }
+      100% { transform: scale(1.05) rotate(3deg); }
     }
 
     /* 3D Scene Wrapper */
@@ -117,39 +172,62 @@
 
     @media (max-width: 768px) {
       .card-scene {
-        height: 680px;
+        height: 690px;
         max-width: 360px;
       }
     }
 
-    /* The Folded Card */
+    /* The Folded Card Body */
     .card-3d {
       width: 100%;
       height: 100%;
       position: relative;
       transform-style: preserve-3d;
-      border-radius: 20px;
+      border-radius: 24px;
       box-shadow: 
-        0 25px 50px -12px rgba(0, 0, 0, 0.7),
-        0 0 40px rgba(212, 175, 55, 0.15);
+        0 0 30px rgba(255, 0, 127, 0.6),
+        0 0 60px rgba(0, 255, 255, 0.4),
+        0 25px 50px rgba(0,0,0,0.8);
       cursor: pointer;
     }
 
-    /* Card Panels: Front and Inside */
+    /* Running Fairy Lights around card */
+    .fairy-lights {
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      right: -8px;
+      bottom: -8px;
+      border-radius: 30px;
+      pointer-events: none;
+      border: 4px dashed #ffff00;
+      animation: fairyBlink 0.5s infinite linear;
+      z-index: 25;
+    }
+
+    @keyframes fairyBlink {
+      0% { border-color: #ff007f; filter: drop-shadow(0 0 8px #ff007f); }
+      25% { border-color: #39ff14; filter: drop-shadow(0 0 8px #39ff14); }
+      50% { border-color: #00ffff; filter: drop-shadow(0 0 8px #00ffff); }
+      75% { border-color: #ffff00; filter: drop-shadow(0 0 8px #ffff00); }
+      100% { border-color: #ff00ff; filter: drop-shadow(0 0 8px #ff00ff); }
+    }
+
+    /* INSIDE SPREAD */
     .card-inside {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: var(--parchment);
-      border-radius: 20px;
-      border: 2px solid rgba(212, 175, 55, 0.4);
+      background: #fffcee;
+      border-radius: 24px;
+      border: 4px solid #ffd700;
       display: grid;
-      grid-template-columns: 1fr 1.25fr;
+      grid-template-columns: 1fr 1.3fr;
       overflow: hidden;
-      box-shadow: inset 0 0 80px rgba(170, 119, 28, 0.08);
       z-index: 2;
+      box-shadow: inset 0 0 60px rgba(255, 105, 180, 0.15);
     }
 
     @media (max-width: 768px) {
@@ -160,237 +238,200 @@
       }
     }
 
-    /* Inside Left Panel (Terracotta & Heritage tribute) */
+    /* Inside Left: Caltagirone Kitsch Tribute */
     .inside-left {
-      background: linear-gradient(145deg, #1e1b18 0%, #151311 100%);
-      padding: 36px 30px;
-      color: #f5f5f4;
+      background: linear-gradient(160deg, #2b0042 0%, #150024 100%);
+      padding: 28px 24px;
+      color: #fff;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       position: relative;
-      border-right: 1px solid rgba(212, 175, 55, 0.25);
+      border-right: 3px dashed #ffd700;
+      text-align: center;
     }
 
-    .inside-left::before {
-      content: "";
+    .pigna-box {
+      margin: 0 auto 12px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .pigna-emoji {
+      font-size: 58px;
+      display: inline-block;
+      filter: drop-shadow(0 0 14px #ffd700);
+      animation: bouncePigna 1.2s infinite alternate ease-in-out;
+    }
+
+    .deal-with-it {
       position: absolute;
       top: 14px;
-      bottom: 14px;
-      left: 14px;
-      right: 14px;
-      border: 1px solid rgba(212, 175, 55, 0.2);
-      border-radius: 12px;
-      pointer-events: none;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 26px;
+      filter: drop-shadow(0 2px 4px #000);
     }
 
-    .inside-left-header {
-      text-align: center;
+    @keyframes bouncePigna {
+      0% { transform: translateY(0) rotate(-4deg); }
+      100% { transform: translateY(-8px) rotate(4deg); }
     }
 
-    .pigna-symbol {
-      width: 72px;
-      height: 72px;
-      margin: 0 auto 16px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(212, 175, 55, 0.25) 0%, transparent 70%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+    .inside-left h2 {
+      font-family: 'Bungee', cursive;
+      font-size: 20px;
+      color: #ffff00;
+      text-shadow: 2px 2px 0 #ff007f;
+      margin-bottom: 4px;
     }
 
-    .inside-left h3 {
-      font-family: 'Cinzel', serif;
-      font-size: 15px;
-      letter-spacing: 0.15em;
+    .sub-presidio {
+      font-size: 13px;
+      font-weight: 700;
+      color: #00ffff;
       text-transform: uppercase;
-      color: var(--gold-1);
-      margin-bottom: 6px;
+      letter-spacing: 0.05em;
     }
 
-    .inside-left .sub-loc {
-      font-size: 12px;
-      color: #a8a29e;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .inside-quote {
-      font-style: italic;
+    .kitsch-quote-box {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px dotted #ff007f;
+      border-radius: 16px;
+      padding: 14px 10px;
+      margin: 12px 0;
       font-size: 13.5px;
-      line-height: 1.65;
-      color: #e7e5e4;
-      text-align: center;
-      padding: 0 10px;
-      position: relative;
+      line-height: 1.5;
+      color: #ffe6ff;
     }
 
-    .inside-quote::before, .inside-quote::after {
-      content: "“";
-      font-family: 'Cinzel', serif;
-      font-size: 28px;
-      color: var(--gold-2);
-      display: block;
-      line-height: 1;
-      opacity: 0.7;
-    }
-    .inside-quote::after {
-      content: "”";
+    .kitsch-quote-box b {
+      color: #ffff00;
+      font-size: 14px;
     }
 
     .inside-left-footer {
-      text-align: center;
-      padding-top: 14px;
-      border-top: 1px solid rgba(212, 175, 55, 0.15);
+      border-top: 2px solid rgba(255, 215, 0, 0.3);
+      padding-top: 10px;
     }
 
-    .badge-socia {
+    .badge-vice {
       display: inline-block;
-      padding: 4px 12px;
-      background: rgba(194, 65, 12, 0.2);
-      border: 1px solid rgba(194, 65, 12, 0.4);
-      border-radius: 6px;
+      padding: 4px 10px;
+      background: #ff007f;
+      color: #fff;
+      font-weight: 900;
+      border-radius: 8px;
       font-size: 11px;
-      font-weight: 600;
-      color: #fb923c;
-      letter-spacing: 0.05em;
       text-transform: uppercase;
+      box-shadow: 0 0 10px #ff007f;
     }
 
-    /* Inside Right Panel (Luigi's Heartfelt Letter) */
+    /* Inside Right: Luigi's Funny & Loving Letter */
     .inside-right {
-      padding: 40px 42px;
-      color: var(--ink);
+      padding: 30px 28px;
+      color: #111;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background: #fffdf8;
-      position: relative;
+      background: #fffcee;
+      overflow-y: auto;
     }
 
     @media (max-width: 768px) {
       .inside-right {
-        padding: 30px 24px;
+        padding: 20px 16px;
       }
     }
 
-    .letter-header {
+    .letter-top-row {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-      border-bottom: 1px solid #e7e5e4;
-      padding-bottom: 12px;
-      margin-bottom: 20px;
-    }
-
-    .letter-date {
-      font-family: 'Cinzel', serif;
-      font-size: 12px;
-      color: #78716c;
-      letter-spacing: 0.08em;
-    }
-
-    .letter-age {
-      font-family: 'Cinzel', serif;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--terracotta);
-    }
-
-    .letter-body {
-      font-size: 14.5px;
-      line-height: 1.75;
-      color: #292524;
-      font-weight: 400;
-    }
-
-    .letter-body p {
+      align-items: center;
+      border-bottom: 2px dashed #ff007f;
+      padding-bottom: 8px;
       margin-bottom: 14px;
     }
 
-    .dropcap {
+    .letter-title {
+      font-family: 'Bungee', cursive;
+      font-size: 18px;
+      color: #ff007f;
+    }
+
+    .age-pill {
+      background: #ffff00;
+      border: 2px solid #000;
+      color: #000;
+      font-family: 'Bungee', cursive;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      transform: rotate(2deg);
+      box-shadow: 2px 2px 0 #000;
+    }
+
+    .letter-content {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: #222;
+      font-weight: 700;
+    }
+
+    .letter-content p {
+      margin-bottom: 12px;
+    }
+
+    .dropcap-trash {
       float: left;
-      font-family: 'Cinzel', serif;
-      font-size: 44px;
-      line-height: 0.8;
-      padding-top: 4px;
-      padding-right: 8px;
-      padding-bottom: 2px;
-      color: var(--gold-2);
-      font-weight: 900;
-    }
-
-    .letter-signature {
-      text-align: right;
-      margin-top: 10px;
-    }
-
-    .sign-name {
-      font-family: 'Great Vibes', cursive;
-      font-size: 38px;
-      color: var(--gold-3);
-      line-height: 1;
-      display: inline-block;
-      transform: rotate(-3deg);
+      font-family: 'Bungee', cursive;
+      font-size: 42px;
+      line-height: 0.85;
+      color: #ff007f;
+      margin-right: 8px;
+      text-shadow: 2px 2px 0 #ffff00;
     }
 
     /* Interactive Candle on Letter */
-    .candle-interactive {
+    .candle-trash-btn {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      background: #fef3c7;
-      border: 1px solid #fde68a;
+      gap: 8px;
+      background: linear-gradient(135deg, #ffff00, #ff8c00);
+      border: 2px solid #000;
       padding: 8px 14px;
       border-radius: 9999px;
-      font-size: 12px;
-      font-weight: 600;
-      color: #92400e;
+      font-family: 'Bungee', cursive;
+      font-size: 11px;
+      color: #000;
       cursor: pointer;
-      transition: all 0.25s ease;
-      align-self: flex-start;
-      margin-top: 6px;
+      box-shadow: 3px 3px 0 #000;
+      transition: all 0.2s ease;
     }
 
-    .candle-interactive:hover {
-      background: #fde68a;
-      transform: translateY(-1px);
+    .candle-trash-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 4px 4px 0 #000;
     }
 
-    .candle-flame {
-      display: inline-block;
-      font-size: 16px;
-      animation: flicker 1.2s infinite alternate ease-in-out;
+    .sign-trash {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 32px;
+      color: #ff007f;
+      transform: rotate(-4deg);
+      text-shadow: 2px 2px 0 #ffff00;
     }
 
-    .candle-flame.blown {
-      animation: puff 0.6s forwards;
-      opacity: 0.4;
-    }
-
-    @keyframes flicker {
-      0% { transform: scale(1) rotate(-2deg); filter: drop-shadow(0 0 4px #f59e0b); }
-      100% { transform: scale(1.15) rotate(3deg); filter: drop-shadow(0 0 10px #f59e0b); }
-    }
-
-    @keyframes puff {
-      0% { transform: scale(1.2); opacity: 1; }
-      50% { transform: scale(0.6) translateY(-8px); opacity: 0.5; }
-      100% { transform: scale(0.2) translateY(-14px); opacity: 0; }
-    }
-
-    /* Card Cover (Front Flap that swings open) */
+    /* FRONT COVER (Flap that opens in 3D) */
     .card-cover {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle at 50% 30%, #1e293b 0%, #0f172a 70%, #090d16 100%);
-      border-radius: 20px;
-      border: 2px solid rgba(212, 175, 55, 0.6);
+      background: radial-gradient(circle at center, #ff007f 0%, #7b004a 50%, #20002b 100%);
+      border-radius: 24px;
+      border: 4px solid #ffff00;
       transform-origin: left center;
       transform-style: preserve-3d;
       transition: transform 1.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 1.25s ease;
@@ -399,135 +440,13 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 40px;
+      padding: 30px;
       text-align: center;
       box-shadow: 
-        15px 0 35px rgba(0, 0, 0, 0.6),
-        inset 0 0 60px rgba(0, 0, 0, 0.8);
+        15px 0 40px rgba(0, 0, 0, 0.8),
+        inset 0 0 50px rgba(255, 255, 0, 0.3);
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
-    }
-
-    /* Cover Ornamental Border */
-    .cover-border {
-      position: absolute;
-      top: 16px;
-      bottom: 16px;
-      left: 16px;
-      right: 16px;
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      border-radius: 14px;
-      pointer-events: none;
-    }
-
-    .cover-border::before {
-      content: "";
-      position: absolute;
-      top: 4px;
-      bottom: 4px;
-      left: 4px;
-      right: 4px;
-      border: 1px dashed rgba(212, 175, 55, 0.25);
-      border-radius: 10px;
-    }
-
-    /* Wax Seal */
-    .wax-seal {
-      width: 88px;
-      height: 88px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 35% 30%, #b91c1c 0%, #991b1b 50%, #7f1d1d 100%);
-      box-shadow: 
-        0 12px 25px rgba(0, 0, 0, 0.5),
-        inset 0 3px 6px rgba(255, 255, 255, 0.3),
-        inset 0 -4px 8px rgba(0, 0, 0, 0.6);
-      border: 3px solid rgba(212, 175, 55, 0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 24px;
-      position: relative;
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .wax-seal:hover {
-      transform: scale(1.06);
-      box-shadow: 
-        0 16px 30px rgba(0, 0, 0, 0.6),
-        0 0 25px rgba(212, 175, 55, 0.4);
-    }
-
-    .wax-seal-inner {
-      font-family: 'Cinzel', serif;
-      font-size: 34px;
-      font-weight: 900;
-      color: #fef08a;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-    }
-
-    .cover-subtitle {
-      font-family: 'Cinzel', serif;
-      font-size: 12px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold-2);
-      margin-bottom: 12px;
-    }
-
-    .cover-title {
-      font-family: 'Cinzel', serif;
-      font-size: 36px;
-      font-weight: 900;
-      letter-spacing: 0.06em;
-      background: var(--gold-grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 8px;
-      line-height: 1.15;
-    }
-
-    @media (max-width: 640px) {
-      .cover-title {
-        font-size: 26px;
-      }
-    }
-
-    .cover-name {
-      font-size: 19px;
-      font-weight: 500;
-      color: #f8fafc;
-      letter-spacing: 0.05em;
-      margin-bottom: 30px;
-    }
-
-    .open-prompt {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 28px;
-      border-radius: 9999px;
-      background: var(--gold-grad);
-      color: #1c1917;
-      font-weight: 700;
-      font-size: 13px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      box-shadow: 
-        0 10px 25px -5px rgba(212, 175, 55, 0.4),
-        0 0 20px rgba(212, 175, 55, 0.2);
-      transition: all 0.3s ease;
-      animation: pulseBtn 2.2s infinite;
-    }
-
-    .open-prompt:hover {
-      transform: translateY(-2px) scale(1.03);
-      box-shadow: 0 15px 30px rgba(212, 175, 55, 0.6);
-    }
-
-    @keyframes pulseBtn {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5); }
-      50% { box-shadow: 0 0 0 14px rgba(212, 175, 55, 0); }
     }
 
     /* Opened State */
@@ -537,173 +456,289 @@
       pointer-events: none;
     }
 
-    /* Controls Bar Below */
-    .controls-bar {
+    /* Wax Seal with Sunglasses */
+    .wax-seal-trash {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #ff0055 0%, #b3003b 60%, #660022 100%);
+      box-shadow: 
+        0 10px 25px rgba(0, 0, 0, 0.6),
+        0 0 25px rgba(255, 0, 127, 0.8),
+        inset 0 3px 6px rgba(255, 255, 255, 0.4);
+      border: 4px solid #ffff00;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 14px;
-      margin-top: 32px;
-      flex-wrap: wrap;
-      z-index: 10;
+      margin-bottom: 16px;
+      position: relative;
+      animation: pulseSeal 1.5s infinite alternate ease-in-out;
     }
 
-    .action-btn {
+    @keyframes pulseSeal {
+      0% { transform: scale(1) rotate(0deg); }
+      100% { transform: scale(1.08) rotate(4deg); }
+    }
+
+    .seal-d {
+      font-family: 'Bungee', cursive;
+      font-size: 42px;
+      color: #ffff00;
+      text-shadow: 2px 2px 0 #000;
+      line-height: 1;
+    }
+
+    .seal-glasses {
+      position: absolute;
+      top: 36px;
+      font-size: 28px;
+      filter: drop-shadow(0 2px 4px #000);
+    }
+
+    .cover-top-sub {
+      font-family: 'Bungee', cursive;
+      font-size: 13px;
+      color: #00ffff;
+      text-shadow: 1px 1px 0 #000;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .cover-mega-title {
+      font-family: 'Bungee', cursive;
+      font-size: 40px;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #ffff00 0%, #ff007f 50%, #00ffff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(2px 2px 0 #000);
+      margin-bottom: 6px;
+    }
+
+    @media (max-width: 640px) {
+      .cover-mega-title { font-size: 28px; }
+    }
+
+    .cover-name-trash {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 28px;
+      color: #ffff00;
+      text-shadow: 3px 3px 0 #ff007f, -1px -1px 0 #000;
+      transform: rotate(-2deg);
+      margin-bottom: 22px;
+    }
+
+    .open-prompt-trash {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      border-radius: 12px;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      text-decoration: none;
-    }
-
-    .btn-wa {
-      background: #059669;
-      color: white;
-      border: 1px solid #10b981;
-      box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
-    }
-    .btn-wa:hover {
-      background: #047857;
-      transform: translateY(-1px);
-    }
-
-    .btn-confetti {
-      background: rgba(212, 175, 55, 0.15);
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      color: var(--gold-1);
-    }
-    .btn-confetti:hover {
-      background: rgba(212, 175, 55, 0.25);
-      transform: translateY(-1px);
-    }
-
-    .btn-toggle {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #e2e8f0;
-    }
-    .btn-toggle:hover {
-      background: rgba(255, 255, 255, 0.15);
-    }
-
-    /* Sound Icon */
-    .sound-badge {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: rgba(15, 23, 42, 0.8);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      padding: 8px 12px;
+      gap: 10px;
+      padding: 14px 30px;
       border-radius: 9999px;
-      font-size: 12px;
-      color: var(--gold-1);
+      background: linear-gradient(90deg, #ffff00, #39ff14, #00ffff, #ff007f);
+      background-size: 200% 200%;
+      animation: rainbowShift 2s linear infinite, bouncePrompt 1.2s infinite alternate ease-in-out;
+      color: #000;
+      font-family: 'Bungee', cursive;
+      font-size: 13px;
+      box-shadow: 0 8px 25px rgba(255, 0, 127, 0.7);
+      border: 2px solid #fff;
+    }
+
+    @keyframes bouncePrompt {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-6px); }
+    }
+
+    /* Sound Badge (Top Right) */
+    .sound-badge-trash {
+      position: fixed;
+      top: 36px;
+      right: 14px;
+      background: #000;
+      border: 2px solid #39ff14;
+      padding: 8px 14px;
+      border-radius: 9999px;
+      font-family: 'Bungee', cursive;
+      font-size: 11px;
+      color: #39ff14;
       cursor: pointer;
-      z-index: 100;
-      backdrop-filter: blur(8px);
+      z-index: 120;
+      box-shadow: 0 0 15px rgba(57, 255, 20, 0.6);
       display: flex;
       align-items: center;
       gap: 6px;
     }
 
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-15px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* Action Toolbar below card */
+    .trash-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 28px;
+      z-index: 20;
+    }
+
+    .trash-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 14px;
+      font-family: 'Bungee', cursive;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      box-shadow: 3px 3px 0 #000;
+      border: 2px solid #000;
+    }
+
+    .trash-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 5px 5px 0 #000;
+    }
+
+    .btn-disco {
+      background: linear-gradient(135deg, #9b5de5, #f15bb5);
+      color: #fff;
+    }
+    .btn-horn {
+      background: linear-gradient(135deg, #fee440, #f72585);
+      color: #000;
+    }
+    .btn-spumante {
+      background: linear-gradient(135deg, #00f5d4, #00bbf9);
+      color: #000;
+    }
+    .btn-wa-trash {
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: #fff;
+      font-size: 13px;
+      box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
+      border: 2px solid #fff;
+    }
+
+    /* Floating Emojis in background */
+    .floating-emoji {
+      position: fixed;
+      pointer-events: none;
+      font-size: 32px;
+      animation: floatUp 4s linear infinite;
+      z-index: 2;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(105vh) rotate(0deg); opacity: 0.9; }
+      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Ambient Dust/Stars Canvas -->
-  <canvas id="ambient-canvas"></canvas>
+  <!-- Top Trash Marquee Ticker -->
+  <div class="trash-ticker">
+    <div class="trash-ticker-inner">
+      🚨 EDIZIONE STRAORDINARIA 🚨 BUON 42° COMPLEANNO DONATA! 🎂 CITTÀ D'ARTE APS IN FESTA A CALTAGIRONE! 🍾 NESSUN DOLORE ARTICOLARE RILEVATO! 🔥 SCIABOLATA DI PROSECCO IN VIA CELSO 163! 💃 SEI LA NUMERO 1! 🪩
+    </div>
+  </div>
 
-  <!-- Confetti Canvas -->
+  <!-- Background Canvases -->
+  <canvas id="ambient-canvas"></canvas>
   <canvas id="confetti-canvas"></canvas>
 
   <!-- Sound Toggle -->
-  <div class="sound-badge" id="sound-toggle" onclick="toggleAudio()">
-    <span id="sound-icon">🔔</span>
-    <span id="sound-text">Suono ON</span>
+  <div class="sound-badge-trash" id="sound-toggle" onclick="toggleAudio()">
+    <span id="sound-icon">🔊</span>
+    <span id="sound-text">MUSICA ON</span>
   </div>
 
   <div class="experience-container">
     
-    <div class="top-badge">
-      <span class="dot"></span>
-      Città d'Arte APS · The District · 5 Ottobre 2026
+    <!-- Top Trash Stickers -->
+    <div class="sticker-badges">
+      <div class="badge-kitsch badge-pink">
+        <span>👑</span>
+        <span>DONATONA NAZIONALE</span>
+      </div>
+      <div class="badge-kitsch badge-gold">
+        <span>🍷</span>
+        <span>42 ANNI D.O.C.G.</span>
+      </div>
+      <div class="badge-kitsch badge-green">
+        <span>🏺</span>
+        <span>PRESIDIO CALTAGIRONE</span>
+      </div>
     </div>
 
     <!-- 3D Card Scene -->
     <div class="card-scene" id="card-scene">
       <div class="card-3d" id="card-3d" onclick="toggleCard()">
         
-        <!-- INSIDE OF THE CARD (Revealed when open) -->
+        <!-- Running fairy lights -->
+        <div class="fairy-lights"></div>
+
+        <!-- INSIDE OF THE CARD -->
         <div class="card-inside">
           
-          <!-- LEFT: The Heritage & Presidio Tribute -->
+          <!-- LEFT: Caltagirone Kitsch Tribute -->
           <div class="inside-left">
-            <div class="inside-left-header">
-              <div class="pigna-symbol">
-                <!-- SVG Pinecone / Pigna Siciliana Stylized -->
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color: #d4af37;">
-                  <path d="M12 2C8 6 5 11 5 16a7 7 0 0 0 14 0c0-5-3-10-7-14z"></path>
-                  <path d="M8 10c2 2 6 2 8 0"></path>
-                  <path d="M7 14c3 3 7 3 10 0"></path>
-                  <path d="M9 18c2 2 4 2 6 0"></path>
-                  <path d="M12 2v20"></path>
-                </svg>
+            <div>
+              <div class="pigna-box">
+                <span class="pigna-emoji">🏺</span>
+                <span class="deal-with-it">😎</span>
               </div>
-              <h3>Caltagirone</h3>
-              <p class="sub-loc">Presidio di Via Celso 163</p>
+              <h2>CALTAGIRONE</h2>
+              <p class="sub-presidio">Presidio di Via Celso 163</p>
             </div>
 
-            <div class="inside-quote">
-              Ci sono persone che passano dai luoghi, e persone che li fanno risplendere. Grazie per essere la luce, la forza e il presidio autentico delle nostre radici.
+            <div class="kitsch-quote-box">
+              <p>
+                <b>«LA VERA REGINA DEL MEDITERRANEO»</b><br>
+                C'è chi compie gli anni e invecchia, e chi come Donata diventa patrimonio mondiale dell'UNESCO! Grazie per essere il cuore, l'energia nucleare e la colonna portante di Città d'Arte!
+              </p>
             </div>
 
             <div class="inside-left-footer">
-              <span class="badge-socia">Socia Fondatrice & Vicepresidente</span>
-              <p style="font-size: 11px; color: #a8a29e; margin-top: 6px;">Città d'Arte APS · Registro Ufficiale</p>
+              <span class="badge-vice">VICEPRESIDENTE D'ACCIAIO</span>
+              <p style="font-size: 11px; color: #ffb3ff; margin-top: 6px; font-weight: 700;">Città d'Arte APS · Albo D'Oro 2026</p>
             </div>
           </div>
 
-          <!-- RIGHT: Luigi's Heartfelt Letter -->
+          <!-- RIGHT: Luigi's Funny & Heartfelt Letter -->
           <div class="inside-right" onclick="event.stopPropagation()">
             <div>
-              <div class="letter-header">
-                <span class="letter-date">5 Ottobre 2026 · Mezzanotte</span>
-                <span class="letter-age">42 Anni Splendidi</span>
+              <div class="letter-top-row">
+                <span class="letter-title">CARA DONATONA! ❤️</span>
+                <span class="age-pill">42 ANNI & NON SENTIRLI!</span>
               </div>
 
-              <div class="letter-body">
+              <div class="letter-content">
                 <p>
-                  <span class="dropcap">C</span>ara Donata, allo scoccare della mezzanotte, il primo e più autentico pensiero vola verso di te.
+                  <span class="dropcap-trash">A</span>llo scoccare della mezzanotte, il primo e più grande brindisi è tutto per te! 🍾
                 </p>
                 <p>
-                  Compiere 42 anni è un traguardo splendido, ma per me è soprattutto l'occasione per dirti quanto sia prezioso, raro e insostituibile il cammino che stiamo percorrendo insieme.
+                  Compiere 42 anni è un traguardo leggendario: sei nel pieno della tua giovinezza cosmica, con la saggezza di chi sa gestire Caltagirone, i progetti impossibili e… pure me! 😂
                 </p>
                 <p>
-                  Grazie per la tua energia incrollabile, per la cura profonda con cui custodisci Caltagirone e il presidio di Via Celso, e per aver creduto fin dal primo istante nel sogno di <strong>Città d'Arte</strong>.
+                  Grazie per la tua grinta pazzesca, per il presidio glorioso di Via Celso e per credere ogni giorno in <strong>Città d'Arte</strong>. Averti come socia e soprattutto come amica fidata e insostituibile è una garanzia e una gioia enorme.
                 </p>
                 <p>
-                  Averti accanto non è solo una garanzia di solidità e visione: è il privilegio quotidiano di lavorare con una socia fidata e, prima di tutto, un'amica vera su cui poter sempre contare. Ti auguro un anno radioso, pieno di gioia, soddisfazioni enormi e luce!
+                  Stanotte niente pensieri, niente scadenze: solo risate, sciabolate di spumante e cannoli siciliani a profusione! Ti auguro un anno stellare, pieno di felicità, salute e successi mostruosi! 🔥💃✨
                 </p>
               </div>
             </div>
 
-            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 12px; border-top: 1px dashed #e7e5e4; padding-top: 10px;">
-              <div class="candle-interactive" id="candle-btn" onclick="blowCandle(event)">
-                <span class="candle-flame" id="flame">🔥</span>
-                <span id="candle-text">Esprimi un desiderio e soffia!</span>
-              </div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 14px; border-top: 2px dashed #ff007f; padding-top: 10px;">
+              <button class="candle-trash-btn" onclick="blowCandle(event)">
+                <span id="flame" style="font-size: 16px;">🔥</span>
+                <span id="candle-text">SOFFIA E VIA I DOLORI! 🎂</span>
+              </button>
 
-              <div class="letter-signature">
-                <div style="font-size: 11px; color: #78716c; text-transform: uppercase; letter-spacing: 0.05em;">Con affetto fraterno,</div>
-                <div class="sign-name">Luigi</div>
+              <div style="text-align: right;">
+                <div style="font-size: 11px; font-weight: 900; color: #666; text-transform: uppercase;">Con affetto fraterno,</div>
+                <div class="sign-trash">Luigi 🚀</div>
               </div>
             </div>
           </div>
@@ -712,51 +747,56 @@
 
         <!-- FRONT COVER (Flap that opens in 3D) -->
         <div class="card-cover">
-          <div class="cover-border"></div>
-
-          <!-- Wax Seal -->
-          <div class="wax-seal" title="Tocca per rompere il sigillo!">
-            <span class="wax-seal-inner">D</span>
+          <!-- Wax Seal with Deal With It Sunglasses -->
+          <div class="wax-seal-trash" title="Tocca per aprire!">
+            <span class="seal-d">D</span>
+            <span class="seal-glasses">😎</span>
           </div>
 
-          <p class="cover-subtitle">Speciale Ricorrenza · 5 Ottobre 2026</p>
-          <h1 class="cover-title">Buon Compleanno</h1>
-          <p class="cover-name">Donata Franceschino</p>
+          <p class="cover-top-sub">5 OTTOBRE 2026 · SPECIALE RICORRENZA</p>
+          <h1 class="cover-mega-title">BUON COMPLEANNO!</h1>
+          <p class="cover-name-trash">Donata Franceschino ✨</p>
 
-          <div class="open-prompt">
-            <span>Tocca per aprire il biglietto</span>
-            <span>✉️</span>
+          <div class="open-prompt-trash">
+            <span>TOCCA PER APRIRE IL BIGLIETTO</span>
+            <span>💌</span>
           </div>
         </div>
 
       </div>
     </div>
 
-    <!-- Actions & Controls Bar -->
-    <div class="controls-bar">
-      <button class="action-btn btn-confetti" onclick="fireGoldenConfetti()">
-        <span>✨</span>
-        <span>Lancia coriandoli d'oro</span>
+    <!-- Action Toolbar below card -->
+    <div class="trash-toolbar">
+      <button class="trash-btn btn-horn" onclick="playAirhorn()">
+        <span>📢</span>
+        <span>SUONA LA SIRENA DJ!</span>
       </button>
 
-      <button class="action-btn btn-toggle" onclick="toggleCard()">
-        <span id="toggle-card-text">📖 Apri / Chiudi biglietto</span>
+      <button class="trash-btn btn-spumante" onclick="popChampagne()">
+        <span>🍾</span>
+        <span>SCIABOLA IL PROSECCO!</span>
+      </button>
+
+      <button class="trash-btn btn-disco" onclick="toggleDisco()">
+        <span id="disco-btn-icon">🪩</span>
+        <span id="disco-btn-text">MODALITÀ DISCO FEVER</span>
       </button>
 
       <a 
-        class="action-btn btn-wa" 
-        href="https://wa.me/393493744752?text=Grazie%20Luigi!%20%E2%9D%A4%EF%B8%8F%20Ho%20appena%20aperto%20il%20biglietto%2C%20%C3%A8%20stupendo!" 
+        class="trash-btn btn-wa-trash" 
+        href="https://wa.me/393493744752?text=Luigi%20sei%20un%20pazzo!%20%F0%9F%98%82%20Sto%20morendo%20dal%20ridere%2C%20grazie%20di%20cuore%20per%20gli%20auguri!%20%E2%9D%A4%EF%B8%8F%F0%9F%8D%BE%E2%9C%A8" 
         target="_blank"
       >
         <span>💬</span>
-        <span>Rispondi a Luigi su WhatsApp</span>
+        <span>RINGRAZIA LUIGI SU WHATSAPP</span>
       </a>
     </div>
 
   </div>
 
   <script>
-    /* Audio Synthesizer via Web Audio API */
+    /* Trash Web Audio Synthesizer: 8-Bit Party Chime, DJ Airhorn & Pop */
     let audioCtx = null;
     let soundEnabled = true;
 
@@ -769,27 +809,70 @@
       }
     }
 
-    function playHarpChime() {
+    function toggleAudio() {
+      soundEnabled = !soundEnabled;
+      document.getElementById('sound-icon').textContent = soundEnabled ? "🔊" : "🔇";
+      document.getElementById('sound-text').textContent = soundEnabled ? "MUSICA ON" : "MUTATO";
+      if (soundEnabled) initAudio();
+    }
+
+    /* "Tanti Auguri a Te" 8-bit disco theme */
+    function playHappyBirthdaySong() {
       if (!soundEnabled) return;
       initAudio();
-      const notes = [523.25, 659.25, 783.99, 1046.50, 1318.51, 1567.98]; // C5, E5, G5, C6, E6, G6 (Arpeggio celestiale)
-      notes.forEach((freq, idx) => {
+
+      // Happy Birthday Melody notes & durations
+      const notes = [
+        { f: 261.63, d: 0.25 }, // C4
+        { f: 261.63, d: 0.25 }, // C4
+        { f: 293.66, d: 0.5 },  // D4
+        { f: 261.63, d: 0.5 },  // C4
+        { f: 349.23, d: 0.5 },  // F4
+        { f: 329.63, d: 1.0 },  // E4
+
+        { f: 261.63, d: 0.25 }, // C4
+        { f: 261.63, d: 0.25 }, // C4
+        { f: 293.66, d: 0.5 },  // D4
+        { f: 261.63, d: 0.5 },  // C4
+        { f: 392.00, d: 0.5 },  // G4
+        { f: 349.23, d: 1.0 },  // F4
+
+        { f: 261.63, d: 0.25 }, // C4
+        { f: 261.63, d: 0.25 }, // C4
+        { f: 523.25, d: 0.5 },  // C5
+        { f: 440.00, d: 0.5 },  // A4
+        { f: 349.23, d: 0.5 },  // F4
+        { f: 329.63, d: 0.5 },  // E4
+        { f: 293.66, d: 0.8 },  // D4
+
+        { f: 466.16, d: 0.25 }, // Bb4
+        { f: 466.16, d: 0.25 }, // Bb4
+        { f: 440.00, d: 0.5 },  // A4
+        { f: 349.23, d: 0.5 },  // F4
+        { f: 392.00, d: 0.5 },  // G4
+        { f: 349.23, d: 1.2 }   // F4
+      ];
+
+      let currentTime = 0;
+      notes.forEach((item) => {
         setTimeout(() => {
-          playBellTone(freq, 1.2 - idx * 0.1);
-        }, idx * 75);
+          if (!soundEnabled) return;
+          playBouncySynthTone(item.f, item.d * 0.8);
+        }, currentTime * 1000);
+        currentTime += item.d * 0.75;
       });
     }
 
-    function playBellTone(freq, duration) {
+    function playBouncySynthTone(freq, duration) {
       if (!audioCtx) return;
       const osc = audioCtx.createOscillator();
       const gain = audioCtx.createGain();
-      
-      osc.type = "sine";
+
+      osc.type = "sawtooth"; // 80s synth sound
       osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-      
+
       gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.2, audioCtx.currentTime + 0.04);
+      gain.gain.exponentialRampToValueAtTime(0.25, audioCtx.currentTime + 0.03);
       gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
 
       osc.connect(gain);
@@ -799,48 +882,97 @@
       osc.stop(audioCtx.currentTime + duration);
     }
 
-    function toggleAudio() {
-      soundEnabled = !soundEnabled;
-      document.getElementById('sound-icon').textContent = soundEnabled ? "🔔" : "🔕";
-      document.getElementById('sound-text').textContent = soundEnabled ? "Suono ON" : "Muto";
-      if (soundEnabled) initAudio();
+    /* DJ Airhorn sound effect */
+    function playAirhorn() {
+      initAudio();
+      if (!audioCtx) return;
+
+      const bursts = [0, 0.12, 0.24, 0.45];
+      bursts.forEach((timeOffset) => {
+        setTimeout(() => {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+
+          osc.type = "sawtooth";
+          osc.frequency.setValueAtTime(466.16, audioCtx.currentTime); // Bb4
+          osc.frequency.exponentialRampToValueAtTime(320, audioCtx.currentTime + 0.18);
+
+          gain.gain.setValueAtTime(0.35, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.18);
+
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.19);
+        }, timeOffset * 1000);
+      });
+
+      fireConfettiCannon(120);
     }
 
-    /* 3D Tilt Interaction following mouse / pointer */
+    /* Champagne Pop */
+    function popChampagne() {
+      initAudio();
+      if (audioCtx) {
+        // Pop click + fizz noise
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(120, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(40, audioCtx.currentTime + 0.08);
+
+        gain.gain.setValueAtTime(0.4, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.09);
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.1);
+      }
+
+      fireConfettiCannon(140);
+      spawnFloatingEmojis(["🍾", "🥂", "💥", "🎉", "🍕"]);
+    }
+
+    /* Disco Strobe Toggle */
+    let isDisco = false;
+    function toggleDisco() {
+      isDisco = !isDisco;
+      document.body.classList.toggle('disco-active', isDisco);
+      document.getElementById('disco-btn-icon').textContent = isDisco ? "🛑" : "🪩";
+      document.getElementById('disco-btn-text').textContent = isDisco ? "FERMA DISCO!" : "MODALITÀ DISCO FEVER";
+      if (isDisco) {
+        playAirhorn();
+        playHappyBirthdaySong();
+      }
+    }
+
+    /* 3D Scene Controls */
     const scene = document.getElementById('card-scene');
-    const card = document.getElementById('card-3d');
     let isOpen = false;
 
     document.addEventListener('mousemove', (e) => {
-      if (isOpen) return; // Keep stable when reading
+      if (isOpen) return;
       const rect = scene.getBoundingClientRect();
       const x = e.clientX - rect.left - rect.width / 2;
       const y = e.clientY - rect.top - rect.height / 2;
-      
-      const rotY = (x / rect.width) * 16;
-      const rotX = -(y / rect.height) * 16;
-
+      const rotY = (x / rect.width) * 20;
+      const rotX = -(y / rect.height) * 20;
       scene.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
-    });
-
-    document.addEventListener('mouseleave', () => {
-      if (!isOpen) {
-        scene.style.transform = `rotateX(0deg) rotateY(0deg)`;
-      }
     });
 
     function toggleCard() {
       isOpen = !isOpen;
       if (isOpen) {
         scene.classList.add('is-open');
-        scene.style.transform = `rotateX(2deg) rotateY(-4deg)`;
-        playHarpChime();
-        setTimeout(fireGoldenConfetti, 400);
-        document.getElementById('toggle-card-text').textContent = "📩 Chiudi il biglietto";
+        scene.style.transform = `rotateX(3deg) rotateY(-5deg)`;
+        playAirhorn();
+        setTimeout(playHappyBirthdaySong, 600);
+        fireConfettiCannon(100);
       } else {
         scene.classList.remove('is-open');
         scene.style.transform = `rotateX(0deg) rotateY(0deg)`;
-        document.getElementById('toggle-card-text').textContent = "📖 Apri il biglietto";
       }
     }
 
@@ -849,101 +981,47 @@
       const flame = document.getElementById('flame');
       const text = document.getElementById('candle-text');
       
-      if (!flame.classList.contains('blown')) {
-        flame.classList.add('blown');
-        text.textContent = "Desiderio espresso! ✨";
-        playHarpChime();
-        fireGoldenConfetti();
-        setTimeout(() => {
-          fireGoldenConfetti();
-        }, 300);
-      } else {
-        flame.classList.remove('blown');
-        text.textContent = "Esprimi un desiderio e soffia!";
-      }
+      flame.textContent = "💨";
+      text.textContent = "DESIDERIO ESPRESSO! NIENTE DOLORI! ✨";
+      playAirhorn();
+      fireConfettiCannon(120);
+      spawnFloatingEmojis(["🎂", "👑", "🍾", "❤️", "💃"]);
     }
 
-    /* Ambient Golden Stars & Dust Background */
-    const bgCanvas = document.getElementById('ambient-canvas');
-    const bgCtx = bgCanvas.getContext('2d');
-    let width = bgCanvas.width = window.innerWidth;
-    let height = bgCanvas.height = window.innerHeight;
-
-    window.addEventListener('resize', () => {
-      width = bgCanvas.width = window.innerWidth;
-      height = bgCanvas.height = window.innerHeight;
-      confettiCanvas.width = window.innerWidth;
-      confettiCanvas.height = window.innerHeight;
-    });
-
-    const particles = [];
-    for (let i = 0; i < 75; i++) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        r: Math.random() * 2 + 0.6,
-        alpha: Math.random() * 0.7 + 0.2,
-        speedY: -(Math.random() * 0.4 + 0.15),
-        speedX: (Math.random() - 0.5) * 0.25,
-        color: Math.random() > 0.3 ? '#d4af37' : '#f59e0b'
-      });
-    }
-
-    function renderAmbient() {
-      bgCtx.clearRect(0, 0, width, height);
-      particles.forEach(p => {
-        bgCtx.save();
-        bgCtx.beginPath();
-        bgCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        bgCtx.fillStyle = p.color;
-        bgCtx.globalAlpha = p.alpha;
-        bgCtx.shadowBlur = 8;
-        bgCtx.shadowColor = p.color;
-        bgCtx.fill();
-        bgCtx.restore();
-
-        p.y += p.speedY;
-        p.x += p.speedX;
-
-        if (p.y < -10) p.y = height + 10;
-        if (p.x < -10) p.x = width + 10;
-        if (p.x > width + 10) p.x = -10;
-      });
-      requestAnimationFrame(renderAmbient);
-    }
-    renderAmbient();
-
-    /* Confetti Physics Engine */
+    /* Confetti Physics */
     const confettiCanvas = document.getElementById('confetti-canvas');
     const confCtx = confettiCanvas.getContext('2d');
-    confettiCanvas.width = window.innerWidth;
-    confettiCanvas.height = window.innerHeight;
+    let width = confettiCanvas.width = window.innerWidth;
+    let height = confettiCanvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+      width = confettiCanvas.width = window.innerWidth;
+      height = confettiCanvas.height = window.innerHeight;
+    });
 
     let confettiList = [];
-
-    function fireGoldenConfetti() {
-      const colors = ['#fbf5b7', '#d4af37', '#aa771c', '#fb923c', '#ffffff', '#e06d53'];
-      for (let i = 0; i < 90; i++) {
+    function fireConfettiCannon(count = 90) {
+      const colors = ['#ff007f', '#ffff00', '#39ff14', '#00ffff', '#ff8c00', '#ffffff'];
+      for (let i = 0; i < count; i++) {
         confettiList.push({
-          x: width / 2 + (Math.random() - 0.5) * 300,
-          y: height / 2 - 50,
-          vx: (Math.random() - 0.5) * 16,
-          vy: -(Math.random() * 14 + 6),
-          size: Math.random() * 9 + 4,
+          x: width / 2 + (Math.random() - 0.5) * 350,
+          y: height / 2 - 40,
+          vx: (Math.random() - 0.5) * 18,
+          vy: -(Math.random() * 16 + 8),
+          size: Math.random() * 11 + 6,
           color: colors[Math.floor(Math.random() * colors.length)],
           rotation: Math.random() * 360,
-          rotSpeed: (Math.random() - 0.5) * 12,
+          rotSpeed: (Math.random() - 0.5) * 16,
           alpha: 1,
-          gravity: 0.32,
-          decay: 0.007 + Math.random() * 0.006,
+          gravity: 0.35,
+          decay: 0.008 + Math.random() * 0.006,
           shape: Math.random() > 0.4 ? 'rect' : 'circle'
         });
       }
     }
 
     function renderConfetti() {
-      confCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
-      
+      confCtx.clearRect(0, 0, width, height);
       confettiList.forEach((c, index) => {
         c.x += c.vx;
         c.y += c.vy;
@@ -951,7 +1029,7 @@
         c.rotation += c.rotSpeed;
         c.alpha -= c.decay;
 
-        if (c.alpha <= 0 || c.y > confettiCanvas.height + 20) {
+        if (c.alpha <= 0 || c.y > height + 20) {
           confettiList.splice(index, 1);
           return;
         }
@@ -966,16 +1044,35 @@
           confCtx.fillRect(-c.size / 2, -c.size / 4, c.size, c.size / 2);
         } else {
           confCtx.beginPath();
-          confCtx.arc(0, 0, c.size / 2.5, 0, Math.PI * 2);
+          confCtx.arc(0, 0, c.size / 2, 0, Math.PI * 2);
           confCtx.fill();
         }
-
         confCtx.restore();
       });
-
       requestAnimationFrame(renderConfetti);
     }
     renderConfetti();
+
+    /* Spawn Floating Emojis */
+    function spawnFloatingEmojis(emojis) {
+      for (let i = 0; i < 12; i++) {
+        setTimeout(() => {
+          const el = document.createElement('div');
+          el.className = 'floating-emoji';
+          el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+          el.style.left = (Math.random() * 90 + 5) + 'vw';
+          document.body.appendChild(el);
+          setTimeout(() => el.remove(), 4000);
+        }, i * 150);
+      }
+    }
+
+    // Auto spawn initial emojis occasionally
+    setInterval(() => {
+      if (Math.random() > 0.4) {
+        spawnFloatingEmojis(["🎉", "✨", "🍾", "💃", "🏺"]);
+      }
+    }, 2500);
 
   </script>
 </body>
